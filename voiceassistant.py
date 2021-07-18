@@ -22,3 +22,6 @@ while terminate == False:
         engine.say("Here are all the commands I know so far: ")
         engine.runAndWait()
         commandList()
+    else:
+        engine.say("I don't recognize this command. Sorry!")
+        engine.runAndWait()
