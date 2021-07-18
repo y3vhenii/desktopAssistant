@@ -8,7 +8,7 @@ engine.runAndWait()
 commandList()
 terminate = False
 while terminate == False:
-    engine.say("I'm waiting for your command...")
+    engine.say("I am waiting for your next command...")
     engine.runAndWait()
     command = input("Command: ").lower()
     if command == "add new command":
