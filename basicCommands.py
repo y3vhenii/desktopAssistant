@@ -1,4 +1,10 @@
 import pyttsx3
+
+# Provides list of commands to the user
+def commandList():
+    f = open("commands.txt", "r")
+    print(f.read())
+    
 # Adds new command to the list
 def addNewCommand():
     engine = pyttsx3.init()

@@ -1,11 +1,6 @@
 import pyttsx3
 from basicCommands import *
 
-# Provides list of commands to the user
-def commandList():
-    f = open("commands.txt", "r")
-    print(f.read())
-
 # Initializing assistant
 engine = pyttsx3.init()
 engine.say("Welcome to desktop assistant. Here is the list of commands that I recognize: ")
