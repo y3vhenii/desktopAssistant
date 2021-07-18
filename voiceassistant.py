@@ -17,6 +17,8 @@ while terminate == False:
         delCommand()
     elif command == "exit":
         terminate = True
+        engine.say("Goodbye")
+        engine.runAndWait()
         engine.stop()
     elif command == "list all possible commands":
         engine.say("Here are all the commands I know so far: ")
