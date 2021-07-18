@@ -1,0 +1,4 @@
+add new command
+remove command
+exit
+list all possible commands
