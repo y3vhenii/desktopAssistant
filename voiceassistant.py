@@ -1,9 +1,11 @@
 import pyttsx3
 from basicCommands import *
+from weather import *
+from geoCoder import *
 
 # Initializing assistant
 engine = pyttsx3.init()
-engine.say("Welcome to desktop assistant. Here is the list of commands that I recognize: ")
+engine.say("Welcome to Desktop Assistant. Here is the list of commands that I recognize: ")
 engine.runAndWait()
 commandList()
 terminate = False
@@ -24,6 +26,13 @@ while terminate == False:
         engine.say("Here are all the commands I know so far: ")
         engine.runAndWait()
         commandList()
+    elif command == "get weather update at your location":
+        engine.say("Where are you located now?")
+        engine.runAndWait()
+        location = input("Location: ").lower()
+        getMyWeatherUpdate(location)
+        engine.say("Done")
+        engine.runAndWait()
     else:
         engine.say("I don't recognize this command. Sorry!")
         engine.runAndWait()

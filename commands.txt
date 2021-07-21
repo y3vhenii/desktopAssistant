@@ -2,3 +2,4 @@ add new command
 remove command
 exit
 list all possible commands
+get weather update at your location
