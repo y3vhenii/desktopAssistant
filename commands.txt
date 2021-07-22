@@ -3,3 +3,5 @@ remove command
 exit
 list all possible commands
 get weather update at your location
+send email
+ask a question

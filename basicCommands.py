@@ -1,9 +1,15 @@
 import pyttsx3
+import webbrowser
 
 # Provides list of commands to the user
 def commandList():
+    print(" ")
+    print("*****************************")
+    print("*** ALL POSSIBLE COMMANDS ***")
+    print("*****************************")
     f = open("commands.txt", "r")
     print(f.read())
+    print("*****************************")
     
 # Adds new command to the list
 def addNewCommand():
@@ -18,7 +24,7 @@ def addNewCommand():
     engine.runAndWait()
     engine.stop()
 
-# Standard commands (add, remove commands)
+# Remove command from the list
 def delCommand():
     engine = pyttsx3.init()
     engine.say("Which command would you like to remove?")
@@ -33,3 +39,14 @@ def delCommand():
     engine.say("Done")
     engine.runAndWait()
     engine.stop()
+
+#Ask a question
+def askQuestion():
+    engine = pyttsx3.init()
+    engine.say("Whats your question?")
+    engine.runAndWait()
+    question = input("Question: ").lower()  
+    engine.say("Since I am not an AI yet, I can't come up with the answer myself, but I will Google it for you.")
+    engine.runAndWait()
+    question = question.replace(' ', '%20')
+    webbrowser.open("http://www.google.com/search?q=" + question, new=1)

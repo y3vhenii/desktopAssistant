@@ -2,6 +2,7 @@ import pyttsx3
 from basicCommands import *
 from weather import *
 from geoCoder import *
+from sendEmail import *
 
 # Initializing assistant
 engine = pyttsx3.init()
@@ -33,6 +34,14 @@ while terminate == False:
         getMyWeatherUpdate(location)
         engine.say("Done")
         engine.runAndWait()
+    elif command == "send email":
+        engine.say("Who are you sending the email to?")
+        engine.runAndWait()
+        recipient = input("Recipient: ").lower()
+        subject = input("Subject: ")
+        sendEmail(str(recipient), str(subject))
+    elif command == "ask a question":
+        askQuestion()
     else:
         engine.say("I don't recognize this command. Sorry!")
         engine.runAndWait()
