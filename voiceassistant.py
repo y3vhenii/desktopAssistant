@@ -32,8 +32,6 @@ while terminate == False:
         engine.runAndWait()
         location = input("Location: ").lower()
         getMyWeatherUpdate(location)
-        engine.say("Done")
-        engine.runAndWait()
     elif command == "send email":
         engine.say("Who are you sending the email to?")
         engine.runAndWait()

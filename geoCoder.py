@@ -1,4 +1,5 @@
 import requests
+import pyttsx3
 from weather import *
 
 # Returns location info based on input
@@ -11,10 +12,16 @@ def getMyWeatherUpdate(address):
     r = requests.get(url = URL, params = PARAMS) 
     data = r.json()
 
-    # Current latitude and longitude
-    latitude = data['items'][0]['position']['lat']
-    longitude = data['items'][0]['position']['lng']
+    # If user entered invalid address
+    if not 'items' in data or len(data['items']) == 0:
+        engine = pyttsx3.init()
+        engine.say("Invalid address. Try again.")
+        engine.runAndWait()
     
-    # Pass parameters to weather api
-    getWeatherAtMyLocation(latitude, longitude)
+    else:
+        # Current latitude and longitude
+        latitude = data['items'][0]['position']['lat']
+        longitude = data['items'][0]['position']['lng']
+        # Pass parameters to weather api
+        getWeatherAtMyLocation(latitude, longitude)
     
