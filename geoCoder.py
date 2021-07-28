@@ -2,7 +2,7 @@ import requests
 import pyttsx3
 from weather import *
 
-# Returns location info based on input
+# Returns latitude and longitude info based on input address using HERE API
 def getMyWeatherUpdate(address):
     URL = "https://geocode.search.hereapi.com/v1/geocode"
     api_key = 'AGkvqgTO-RKvsp3oSZGxpCa7l3x0e_jb3QM_OcB2f94' 

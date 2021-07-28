@@ -40,7 +40,7 @@ def delCommand():
     engine.runAndWait()
     engine.stop()
 
-#Ask a question
+# Ask a question.
 def askQuestion():
     engine = pyttsx3.init()
     engine.say("Whats your question?")

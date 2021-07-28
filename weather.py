@@ -1,7 +1,7 @@
 import requests
 import json
 
-# Retrieves weather based on location 
+# Retrieves weather based on lastitude and longitude 
 def getWeatherAtMyLocation(latitude, longitude):
     url = "https://api.tomorrow.io/v4/timelines"
     querystring = {

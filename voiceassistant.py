@@ -1,8 +1,14 @@
+# TODO: Adjust speech recognition to recognize commands even when a few letters don't match.
+# TODO: Possibly adjust command recognition even when words or sounds don't match hard-coded commands.
+# TODO: Add more functions...
+
 import pyttsx3
 from basicCommands import *
 from weather import *
 from geoCoder import *
 from sendEmail import *
+from speechRecogn import *
+
 
 # Initializing assistant
 engine = pyttsx3.init()
@@ -11,9 +17,11 @@ engine.runAndWait()
 commandList()
 terminate = False
 while terminate == False:
-    engine.say("I am waiting for your next command...")
+    engine.say("I'm waiting on your command. Press enter when you're ready...")
     engine.runAndWait()
-    command = input("Command: ").lower()
+    input("Press Enter: ")
+    # Call speech recognition function (listening time 4 seconds)
+    command = recognizeVoice()
     if command == "add new command":
         addNewCommand()
     elif command == "remove command":
@@ -38,7 +46,7 @@ while terminate == False:
         recipient = input("Recipient: ").lower()
         subject = input("Subject: ")
         sendEmail(str(recipient), str(subject))
-    elif command == "ask a question":
+    elif command == "ask question":
         askQuestion()
     else:
         engine.say("I don't recognize this command. Sorry!")
