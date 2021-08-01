@@ -2,12 +2,16 @@ import sounddevice as sd
 import soundfile as sf
 from scipy.io.wavfile import write
 import speech_recognition as sr
+from sounds import *
 
 # Recognize voice command and return text
 def recognizeVoice():
     fs = 44100  # Sample rate
     seconds = 4  # Duration of recording
     sd.default.dtype='int32', 'int32'   # Need to set to int32 to avoid trouble with recognize_google
+    
+    # Play the sound
+    imListening()
 
     myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1)
     sd.wait()  # Wait until recording is finished

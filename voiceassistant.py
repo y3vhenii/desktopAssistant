@@ -8,6 +8,8 @@ from weather import *
 from geoCoder import *
 from sendEmail import *
 from speechRecogn import *
+from timer import *
+from sounds import *
 
 
 # Initializing assistant
@@ -48,6 +50,14 @@ while terminate == False:
         sendEmail(str(recipient), str(subject))
     elif command == "ask question":
         askQuestion()
+    elif command == "set timer":
+        engine.say("For how many minutes?")
+        engine.runAndWait()
+        minutes = input("Minutes: ")
+        timer(int(minutes))
+        time.sleep(1)
     else:
+        playErr()
+        time.sleep(0.5)
         engine.say("I don't recognize this command. Sorry!")
         engine.runAndWait()
